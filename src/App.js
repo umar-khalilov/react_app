@@ -1,15 +1,20 @@
 import React, { Component } from 'react';
 import './App.css';
-import SignInForm from './components/SignInForm';
-// import Calculator from './components/Calculator/index'
+import Counter from './components/calendar';
 
+class App extends Component {
+  constructor(props) {
+    super(props)
+  }
 
-
-
-function App() {
-  return(
-    <SignInForm/>
-  )
+  render() {
+    return (
+      <>
+        <Counter/>
+      </>
+    );
+  }
 }
+
 
 export default App;
