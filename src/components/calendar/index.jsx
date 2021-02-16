@@ -4,51 +4,42 @@ import styles from './calendar.module.css';
 class Counter extends Component {
     constructor(props) {
         super(props);
-        this.state = { count: 0, };
+        this.state = {
+            count: 0,
+        };
     }
 
-    clickHadlerAdd = () => {
-        const { count } = this.state;
-        const newState = { count: count + this.props.stepNumber };
-        this.setState(newState);
+    clickHandlerAdd = () => {
+        this.setState({ count: this.state.count + this.props.stepNumber });
     }
 
-    clickHadlerDeb = () => {
-        const { count } = this.state;
-        const newState = { count: count - this.props.stepNumber };
+    clickHandlerSub = () => {
         if (this.state.count === 0) {
             return;
         }
-        this.setState(newState);
+        this.setState({ count: this.state.count - this.props.stepNumber });
     }
 
     showBtn = () => {
         if (this.state.count > 0) {
-            return this.clickHadlerDeb;
+            return (<button className={styles.btn} onClick={this.clickHandlerSub}>Subtraction!</button>);
         }
-        return this.clickHadlerAdd
     }
 
     render() {
         const { count } = this.state;
         return (
             <div className={styles.container}>
-                <section>
+                <section className={styles.colorDisplay}>
                     <h1>Counter = {this.state.count}</h1>
-                    <h2>{this.props.stepNumber} </h2>
-
+                    <h2>Step = {this.props.stepNumber}</h2>
                 </section>
-                <button className={styles.btn} onClick={this.clickHadlerAdd}>Add!</button>
-                <button className={styles.btn} onClick={this.clickHadlerDeb}>Deb!</button>
-                <div>
-                    <p>Количество единиц добавляемых к счётчику = 1</p>
-                </div>
+                <div><button className={styles.btn} onClick={this.clickHandlerAdd}>Add!</button>{this.showBtn()}</div>
+                <p className={styles.colorDisplay}>Количество единиц добавляемых к счётчику = {this.props.stepNumber}</p>
             </div>
         );
     }
 }
-
-
 
 export default Counter;
 

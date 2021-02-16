@@ -1,20 +1,11 @@
-import React, { Component } from 'react';
 import './App.css';
 import Counter from './components/calendar';
 
-class App extends Component {
-  constructor(props) {
-    super(props)
-  }
-
-  render() {
-    return (
-      <>
-        <Counter/>
-      </>
-    );
-  }
+function App() {
+  const stepNumber = 10;
+  return (
+    <Counter stepNumber={stepNumber} />
+  );
 }
-
 
 export default App;

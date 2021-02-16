@@ -1,16 +1,19 @@
 .btn{
     padding: 20px;
-    background-color: blueviolet;
-    color: aliceblue;
+    background-color: #0f0;
+    color: white;
     border-radius: 20%;
     font-size: x-large;
+    margin: 10px;
+    cursor: pointer;
 }
 
 .container{
     display: flex;
     flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    background-color: aqua;
 }
 
+.colorDisplay{
+    color: #0f0;
+    text-align: justify;
+}
