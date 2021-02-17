@@ -10,14 +10,14 @@ class Counter extends Component {
     }
 
     clickHandlerAdd = () => {
-        this.setState({ count: this.state.count + this.props.stepNumber });
+        this.setState((state, props) => ({ count: this.state.count + this.props.stepNumber }));
     }
 
     clickHandlerSub = () => {
         if (this.state.count === 0) {
             return;
         }
-        this.setState({ count: this.state.count - this.props.stepNumber });
+        this.setState((state, props) => ({ count: this.state.count - this.props.stepNumber }));
     }
 
     showBtn = () => {
