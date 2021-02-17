@@ -6,40 +6,38 @@ class Counter extends Component {
         super(props);
         this.state = {
             count: 0,
+            isAdd: true,
         };
     }
 
-    clickHandlerAdd = () => {
-        this.setState((state, props) => ({ count: this.state.count + this.props.stepNumber }));
+    clickHandler = () => {
+        this.setState((state, props) => {
+            const { count } = state;
+            const { stepNumber } = props;
+            return (state.isAdd) ? { count: count + stepNumber } : { count: count - stepNumber };
+        })
     }
 
-    clickHandlerSub = () => {
-        if (this.state.count === 0) {
-            return;
-        }
-        this.setState((state, props) => ({ count: this.state.count - this.props.stepNumber }));
-    }
-
-    showBtn = () => {
-        if (this.state.count > 0) {
-            return (<button className={styles.btn} onClick={this.clickHandlerSub}>Subtraction!</button>);
-        }
-    }
+    changeMode = () => this.setState({ isAdd: !this.state.isAdd })
 
     render() {
-        const { count } = this.state;
+        const { count, isAdd } = this.state;
+        const { stepNumber } = this.props;
         return (
-            <div className={styles.container}>
+            <div className={styles.container} >
                 <section className={styles.colorDisplay}>
-                    <h1>Counter = {this.state.count}</h1>
-                    <h2>Step = {this.props.stepNumber}</h2>
+                    <h1>Counter : {count}</h1>
+                    <h2>Step : {stepNumber}</h2>
                 </section>
-                <div><button className={styles.btn} onClick={this.clickHandlerAdd}>Add!</button>{this.showBtn()}</div>
-                <p className={styles.colorDisplay}>Количество единиц добавляемых к счётчику = {this.props.stepNumber}</p>
+                <div>
+                    <button className={styles.btn} onClick={this.clickHandler}>{isAdd ? 'Add!' : 'Subtract'}</button>
+                    <button className={styles.btn} onClick={this.changeMode}>Change Mode</button>
+                </div>
+                <p className={styles.colorDisplay}>Количество единиц добавляемых к счётчику = {stepNumber}</p>
             </div>
         );
+
     }
 }
-
 export default Counter;
 
