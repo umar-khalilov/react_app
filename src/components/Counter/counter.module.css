@@ -1,6 +1,6 @@
 .btn{
     padding: 20px;
-    background-color: #0f0;
+    background-color: green;
     color: white;
     border-radius: 20%;
     font-size: x-large;
@@ -18,4 +18,8 @@
 .colorDisplay{
     color: #0f0;
     text-align: justify;
+}
+
+.btn:hover{
+    background-color: #0f0;
 }

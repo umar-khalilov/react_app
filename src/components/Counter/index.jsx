@@ -30,7 +30,7 @@ class Counter extends Component {
                     <h2>Step : {stepNumber}</h2>
                 </section>
                 <div>
-                    <button className={styles.btn} onClick={this.clickHandler}>{isAdd ? 'Add!' : 'Subtract'}</button>
+                    <button className={styles.btn} onClick={this.clickHandler}>{isAdd ? 'Add!' : 'Subtract!'}</button>
                     <button className={styles.btn} onClick={this.changeMode}>Change Mode</button>
                 </div>
                 <p className={styles.colorDisplay}>Количество единиц добавляемых к счётчику = {stepNumber}</p>
