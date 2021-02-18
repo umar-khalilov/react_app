@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import styles from './counter.module.css';
+import styles from './counter.module.scss';
+import PropTypes from 'prop-types';
 
 class Counter extends Component {
     constructor(props) {
@@ -14,8 +15,8 @@ class Counter extends Component {
         this.setState((state, props) => {
             const { count } = state;
             const { stepNumber } = props;
-            return (state.isAdd) ? { count: count + stepNumber } : { count: count - stepNumber };
-        })
+            return { count: state.isAdd ? count + stepNumber : count - stepNumber };
+        });
     }
 
     changeMode = () => this.setState({ isAdd: !this.state.isAdd })
@@ -39,5 +40,11 @@ class Counter extends Component {
 
     }
 }
+
+Counter.propTypes = {
+    stepNumber: PropTypes.number.isRequired
+}
+
+
 export default Counter;
 
