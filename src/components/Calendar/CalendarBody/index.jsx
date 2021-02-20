@@ -1,6 +1,6 @@
 import React from 'react';
-import { getWeek, parse } from 'date-fns';
-import Week from './../Week'
+import { WeekDays } from '../Week';
+import Month from '../Month';
 
 const CalendarBody = props => {
     const { currentDay } = props;
@@ -8,18 +8,10 @@ const CalendarBody = props => {
         <div>
             <table>
                 <thead>
-                    <tr>
-                        <td>S</td>
-                        <td>M</td>
-                        <td>T</td>
-                        <td>W</td>
-                        <td>T</td>
-                        <td>F</td>
-                        <td>S</td>
-                    </tr>
+                    <WeekDays />
                 </thead>
                 <tbody>
-                    <Week year={2021} week={9} />
+                    <Month year={2021} month={2} />
                 </tbody>
             </table>
         </div>
