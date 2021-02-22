@@ -4,12 +4,12 @@ import PropTypes from 'prop-types';
 import { parse, getWeek, addWeeks, getYear } from 'date-fns';
 
 const Month = props => {
-    const { year, month } = props;
-    const startOfMonth = parse(`${year} ${month}`, 'Y m', new Date());
+    const { year, month, currentDay } = props;
+    const startOfMonth = parse(`${year} ${month}`, 'y M', new Date());
     const weekArray = [];
-    for (let i = 0; i < 6; i++) {
+    for (let i = 0; i < 5; i++) {
         const startOfWeek = addWeeks(startOfMonth, i);
-        weekArray.push(<Week key={`${year}-${month}-${i}`} year={getYear(startOfWeek)} week={getWeek(startOfWeek)} />)
+        weekArray.push(<Week key={`${month}-${year}-${i}`} currentDay={currentDay} week={getWeek(startOfWeek)} year={getYear(startOfWeek)} />)
     }
     return <>{[weekArray]}</>;
 }
