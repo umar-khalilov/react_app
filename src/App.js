@@ -1,9 +1,9 @@
-import './App.css'
-import Counter from './components/Counter'
-import Calendar from './components/Calendar'
+import './App.css';
+import Counter from './components/Counter';
+import Calendar from './components/Calendar';
 // import FlexContainer from './components/FlexContainer';
 // import WindowSizes from './components/WindowSizes'
-import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
 
 function App (props) {
   const stepNumber = 100;
@@ -43,23 +43,23 @@ function App (props) {
           <Calendar />
         </Route>
         <Route path='/counter'>
-          <Counter stepNumber={stepNumber}/>
+          <Counter stepNumber={stepNumber} />
         </Route>
       </Switch>
     </BrowserRouter>
-  )
+  );
 }
 
 const Home = () => {
-  return <div>Home page</div>
-}
+  return <div>Home page</div>;
+};
 
 const Contacts = () => {
-  return <div>Contacts page</div>
-}
+  return <div>Contacts page</div>;
+};
 
 const About = () => {
-  return <div>About page</div>
-}
+  return <div>About page</div>;
+};
 
-export default App
+export default App;

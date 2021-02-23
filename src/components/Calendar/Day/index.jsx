@@ -4,21 +4,18 @@ import cx from 'classnames';
 import styles from './Day.module.scss';
 import PropTypes from 'prop-types';
 
-
 const Day = props => {
-    const { day, currentDay } = props;
-    const classNames = cx(styles.day, {
-        [styles.currentMonthDay]: isSameMonth(day, currentDay),
-        [styles.currentDay]: isToday(day)
-    });
-    return <td className={classNames}> {format(day, 'd')}</td>;
-}
-
-
+  const { day, currentDay } = props;
+  const classNames = cx(styles.day, {
+    [styles.currentMonthDay]: isSameMonth(day, currentDay),
+    [styles.currentDay]: isToday(day),
+  });
+  return <td className={classNames}> {format(day, 'd')}</td>;
+};
 
 Day.propTypes = {
-    day: PropTypes.instanceOf(Date).isRequired,
-    currentDay: PropTypes.instanceOf(Date).isRequired,
-}
+  day: PropTypes.instanceOf(Date).isRequired,
+  currentDay: PropTypes.instanceOf(Date).isRequired,
+};
 
 export default Day;
