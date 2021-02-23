@@ -5,8 +5,10 @@ import Day from '../Day';
 const Week = props => {
     const { week, year, currentDay } = props;
     const startOfWeek = parse(`${year} ${week}`, 'Y w', new Date());
-    const dayArray = [];
-    // dayArray.map((index) => <Day key={`${year}-${week}-${index}`} day={addDays(startOfWeek, index)} />);
+    const dayArray = new Array(7);
+    // dayArray.map((index) => {
+    //     return (<Day key={`${year}-${week}-${index}`} currentDay={currentDay} day={addDays(startOfWeek, index)} />);
+    // });
     for (let i = 0; i < 7; i++) {
         dayArray.push(<Day key={`${year}-${week}-${i}`} currentDay={currentDay} day={addDays(startOfWeek, i)} />);
     }

@@ -9,7 +9,7 @@ const Day = props => {
     const { day, currentDay } = props;
     const classNames = cx(styles.day, {
         [styles.currentMonthDay]: isSameMonth(day, currentDay),
-        [styles.currentDay]: isToday(day),
+        [styles.currentDay]: isToday(day)
     });
     return <td className={classNames}> {format(day, 'd')}</td>;
 }
