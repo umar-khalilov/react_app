@@ -1,16 +1,65 @@
-import './App.css';
-import Counter from './components/Counter';
-import Calendar from './components/Calendar';
-import FlexContainer from './components/FlexContainer';
+import './App.css'
+import Counter from './components/Counter'
+import Calendar from './components/Calendar'
+// import FlexContainer from './components/FlexContainer';
+// import WindowSizes from './components/WindowSizes'
+import { BrowserRouter, Switch, Route, Link } from 'react-router-dom'
 
-function App(props) {
+function App (props) {
+  const stepNumber = 100;
   return (
-    <>
+    <BrowserRouter>
+      <nav>
+        <ul>
+          <li>
+            <Link to='/'>Home</Link>
+          </li>
+          <li>
+            <Link to='/contacts'>Contacts</Link>
+          </li>
+          <li>
+            <Link to='/about'>About</Link>
+          </li>
+          <li>
+            <Link to='/calendar'>Calendar</Link>
+          </li>
+          <li>
+            <Link to='/counter'>Counter</Link>
+          </li>
+        </ul>
+      </nav>
 
-<Calendar/> 
-
-    </>
-  );
+      <Switch>
+        <Route exact path='/'>
+          <Home />
+        </Route>
+        <Route path='/contacts'>
+          <Contacts />
+        </Route>
+        <Route path='/about'>
+          <About />
+        </Route>
+        <Route path='/calendar'>
+          <Calendar />
+        </Route>
+        <Route path='/counter'>
+          <Counter stepNumber={stepNumber}/>
+        </Route>
+      </Switch>
+    </BrowserRouter>
+  )
 }
 
-export default App;
+const Home = () => {
+  return <div>Home page</div>
+}
+
+const Contacts = () => {
+  return <div>Contacts page</div>
+}
+
+const About = () => {
+  return <div>About page</div>
+}
+
+export default App
