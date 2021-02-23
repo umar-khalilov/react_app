@@ -1,25 +1,20 @@
 import React from 'react';
-import { getWeek, parse } from 'date-fns';
-import Week from './../Week'
+import { WeekDays } from '../Week';
+import Month from '../Month';
+import { getYear, getMonth, format } from 'date-fns';
+import styles from './CalendarBody.module.scss';
 
 const CalendarBody = props => {
     const { currentDay } = props;
     return (
-        <div>
+        <div className={styles.container}>
+            <h1 className={styles.currentMonthAndYear}>{format(currentDay, 'MMMM y')}</h1>
             <table>
                 <thead>
-                    <tr>
-                        <td>S</td>
-                        <td>M</td>
-                        <td>T</td>
-                        <td>W</td>
-                        <td>T</td>
-                        <td>F</td>
-                        <td>S</td>
-                    </tr>
+                    <WeekDays />
                 </thead>
                 <tbody>
-                    <Week year={2021} week={9} />
+                    <Month year={2021} month={2} currentDay={currentDay} />
                 </tbody>
             </table>
         </div>

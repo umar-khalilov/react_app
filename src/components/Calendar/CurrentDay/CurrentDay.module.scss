@@ -1,0 +1,25 @@
+.currentContainer{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    background-color:#38cec4;
+    padding: 10px;
+    min-width: 50%;
+    text-transform: uppercase;    
+}
+
+.dayOfWeek{
+    color: white;
+    font-size: 2rem;
+    font-weight: 100;
+    margin-bottom: -15px;
+
+}
+
+.dayStyles{
+    color: white;
+    font-size: 13rem;
+    padding-bottom: 80px;
+}
+
