@@ -21,9 +21,17 @@ class Counter extends Component {
 
   changeMode = () => this.setState({ isAdd: !this.state.isAdd });
 
+  shouldComponentUpdate(nextProps, nextState){
+    if(nextProps.stepNumber !== this.props.stepNumber){
+      return false;
+    }
+    return true;
+  }
+
   render () {
     const { count, isAdd } = this.state;
     const { stepNumber } = this.props;
+    console.log('RENDER');
     return (
       <div className={styles.container}>
         <section className={styles.colorDisplay}>

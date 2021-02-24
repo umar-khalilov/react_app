@@ -1,5 +1,5 @@
 import './App.css';
-import Counter from './components/Counter';
+import CounterPage from './components/CounterPage';
 import Calendar from './components/Calendar';
 // import FlexContainer from './components/FlexContainer';
 // import WindowSizes from './components/WindowSizes'
@@ -43,7 +43,7 @@ function App (props) {
           <Calendar />
         </Route>
         <Route path='/counter'>
-          <Counter stepNumber={stepNumber} />
+          <CounterPage stepNumber={stepNumber} />
         </Route>
       </Switch>
     </BrowserRouter>
