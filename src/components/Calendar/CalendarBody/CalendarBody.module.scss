@@ -1,15 +1,15 @@
-.container{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    padding: 40px;
-    min-width: 50%;
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 40px;
+  min-width: 50%;
 }
 
-.currentMonthAndYear{
-    color: #049a92;
-    font-size: 2rem;
-    font-weight: 600;
-    text-transform: uppercase;
+.currentMonthAndYear {
+  color: #049a92;
+  font-size: 2rem;
+  font-weight: 600;
+  text-transform: uppercase;
 }

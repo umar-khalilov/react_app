@@ -10,6 +10,7 @@ const Day = props => {
     [styles.currentMonthDay]: isThisMonth(day),
     [styles.currentDay]: isToday(day),
   });
+
   return <td className={classNames}> {format(day, 'd')}</td>;
 };
 

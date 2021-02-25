@@ -4,7 +4,7 @@ import { format } from 'date-fns';
 import styles from './CurrentDay.module.scss';
 
 const CurrentDay = props => {
-  const { currentDay } = props;
+  const { currentDay} = props;
   return (
     <div className={styles.currentContainer}>
       <h1 className={styles.dayOfWeek}>{format(currentDay, 'EEEE')}</h1>

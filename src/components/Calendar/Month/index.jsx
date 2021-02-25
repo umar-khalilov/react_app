@@ -12,7 +12,7 @@ import Week from '../Week';
 
 const Month = props => {
   const { year, month } = props;
-  const startOfMonth = parse(`${year} ${month}`, 'y M', new Date());
+  const startOfMonth = parse(`${year} ${month}`, 'yyyy M', new Date());
   const weekStart = startOfWeek(startOfMonth);
   const weekMonthRender = () =>
     new Array(getWeeksInMonth(startOfMonth)).fill(null).map((_, index) => {
