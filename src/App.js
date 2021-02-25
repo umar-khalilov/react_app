@@ -1,65 +1,34 @@
 import './App.css';
-import CounterPage from './components/CounterPage';
-import Calendar from './components/Calendar';
+import React, { Component } from 'react';
+// import CounterPage from './components/CounterPage';
+// import Calendar from './components/Calendar';
 // import FlexContainer from './components/FlexContainer';
 // import WindowSizes from './components/WindowSizes'
-import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+// import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+import PageUser from './components/PageUser';
+import UserContext from './context';
 
-function App (props) {
-  const stepNumber = 100;
-  return (
-    <BrowserRouter>
-      <nav>
-        <ul>
-          <li>
-            <Link to='/'>Home</Link>
-          </li>
-          <li>
-            <Link to='/contacts'>Contacts</Link>
-          </li>
-          <li>
-            <Link to='/about'>About</Link>
-          </li>
-          <li>
-            <Link to='/calendar'>Calendar</Link>
-          </li>
-          <li>
-            <Link to='/counter'>Counter</Link>
-          </li>
-        </ul>
-      </nav>
-
-      <Switch>
-        <Route exact path='/'>
-          <Home />
-        </Route>
-        <Route path='/contacts'>
-          <Contacts />
-        </Route>
-        <Route path='/about'>
-          <About />
-        </Route>
-        <Route path='/calendar'>
-          <Calendar />
-        </Route>
-        <Route path='/counter'>
-          <CounterPage stepNumber={stepNumber} />
-        </Route>
-      </Switch>
-    </BrowserRouter>
-  );
+class App extends Component {
+  constructor (props) {
+    super(props);
+    this.state = {
+      user: {
+        firstName: 'John',
+        lastName: 'Doe',
+        imgAvatar:'https://m.media-amazon.com/images/M/MV5BMTkxMzk2MDkwOV5BMl5BanBnXkFtZTcwMDAxODQwMg@@._V1_UY1200_CR79,0,630,1200_AL_.jpg',
+      },
+    };
+  }
+  render () {
+    const { user } = this.state;
+    return (
+      <UserContext.Provider value={user}>
+        <>
+          <PageUser />
+        </>
+      </UserContext.Provider>
+    );
+  }
 }
-
-const Home = () => {
-  return <div>Home page</div>;
-};
-
-const Contacts = () => {
-  return <div>Contacts page</div>;
-};
-
-const About = () => {
-  return <div>About page</div>;
-};
 
 export default App;
