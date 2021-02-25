@@ -1,24 +1,31 @@
 import React from 'react';
-import Week from '../Week';
 import PropTypes from 'prop-types';
-import { parse, getWeek, addWeeks, getYear } from 'date-fns';
+import {
+  parse,
+  getWeek,
+  addWeeks,
+  getYear,
+  getWeeksInMonth,
+  startOfWeek,
+} from 'date-fns';
+import Week from '../Week';
 
 const Month = props => {
-  const { year, month, currentDay } = props;
+  const { year, month } = props;
   const startOfMonth = parse(`${year} ${month}`, 'y M', new Date());
-  const weekArray = [];
-  for (let i = 0; i < 5; i++) {
-    const startOfWeek = addWeeks(startOfMonth, i);
-    weekArray.push(
-      <Week
-        key={`${month}-${year}-${i}`}
-        currentDay={currentDay}
-        week={getWeek(startOfWeek)}
-        year={getYear(startOfWeek)}
-      />
-    );
-  }
-  return <>{[weekArray]}</>;
+  const weekStart = startOfWeek(startOfMonth);
+  const weekMonthRender = () =>
+    new Array(getWeeksInMonth(startOfMonth)).fill(null).map((_, index) => {
+      const startOfWeek = addWeeks(weekStart, index);
+      return (
+        <Week
+          key={`${month}-${year}-${index}`}
+          week={getWeek(startOfWeek)}
+          year={getYear(startOfWeek)}
+        />
+      );
+    });
+  return <>{weekMonthRender()}</>;
 };
 
 Month.propTypes = {

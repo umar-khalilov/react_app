@@ -1,4 +1,5 @@
 import React from 'react';
+import PropTypes from 'prop-types';
 import { format } from 'date-fns';
 import styles from './CurrentDay.module.scss';
 
@@ -10,6 +11,10 @@ const CurrentDay = props => {
       <div className={styles.dayStyles}>{format(currentDay, 'd')}</div>
     </div>
   );
+};
+
+CurrentDay.propTypes = {
+  currentDay: PropTypes.instanceOf(Date),
 };
 
 export default CurrentDay;
