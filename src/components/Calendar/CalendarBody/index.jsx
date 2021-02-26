@@ -1,7 +1,8 @@
 import React from 'react';
-import { WeekDays } from '../Week';
+import PropTypes from 'prop-types';
+import { format, getYear, getMonth } from 'date-fns';
 import Month from '../Month';
-import { format } from 'date-fns';
+import { WeekDays } from '../Week/WeekDays';
 import styles from './CalendarBody.module.scss';
 
 const CalendarBody = props => {
@@ -16,11 +17,15 @@ const CalendarBody = props => {
           <WeekDays />
         </thead>
         <tbody>
-          <Month year={2021} month={2} currentDay={currentDay} />
+          <Month year={getYear(currentDay)} month={getMonth(currentDay) + 1} />
         </tbody>
       </table>
     </div>
   );
+};
+
+CalendarBody.propTypes = {
+  currentDay: PropTypes.instanceOf(Date),
 };
 
 export default CalendarBody;

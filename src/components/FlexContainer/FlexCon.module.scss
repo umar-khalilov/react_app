@@ -1,9 +1,8 @@
-.container{
-    display: flex;
-   color: dodgerblue;
-   background-color:black;
-   >*{
-       border: 1px dashed green;
-   }
-   
+.container {
+  display: flex;
+  color: dodgerblue;
+  background-color: black;
+  > * {
+    border: 1px dashed green;
+  }
 }

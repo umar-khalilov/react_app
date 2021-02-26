@@ -1,25 +1,26 @@
-.btn{
-    padding: 20px;
-    background-color: green;
-    color: white;
-    border-radius: 20%;
-    font-size: x-large;
-    margin: 10px;
-    cursor: pointer;
+.btn {
+  padding: 20px;
+  background-color: green;
+  color: white;
+  border-radius: 20%;
+  font-size: x-large;
+  margin: 10px;
+  cursor: pointer;
 }
 
-.container{
-    display: flex;
-    flex-direction: column;
-    padding: 10px;
-    background-color: black;
+.container {
+  display: flex;
+  flex-direction: column;
+  width: 400px;
+  padding: 10px;
+  background-color: black;
 }
 
-.colorDisplay{
-    color: #0f0;
-    text-align: justify;
+.colorDisplay {
+  color: #0f0;
+  text-align: justify;
 }
 
-.btn:hover{
-    background-color: #0f0;
+.btn:hover {
+  background-color: #0f0;
 }
