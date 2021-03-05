@@ -10,7 +10,7 @@ import StopWatch from './components/FuncStopWatch';
 import ThemeSwitcher from './components/ThemeSwitcher';
 import { ThemeContext } from './context';
 import THEMES from './constants';
-
+import SideBar from './components/SideBar';
 
 function App (props) {
   const themeState = useState(THEMES.LIGHT);
@@ -18,29 +18,7 @@ function App (props) {
   return (
     <ThemeContext.Provider value={themeState}>
       <BrowserRouter>
-        <nav>
-          <ul>
-            <li>
-              <Link to='/'>Calendar</Link>
-            </li>
-            <li>
-              <Link to='/counter'>Counter</Link>
-            </li>
-            <li>
-              <Link to='/flexContainer'>FlexContainer</Link>
-            </li>
-            <li>
-              <Link to='/windowSizes'>WindowSizes</Link>
-            </li>
-            <li>
-              <Link to='/stopWatch'>StopWatch</Link>
-            </li>
-            <li>
-              <Link to='/switchTheme'>SwitchTheme</Link>
-            </li>
-          </ul>
-        </nav>
-
+       <SideBar> </SideBar>
         <Switch>
           <Route exact path='/' component={Calendar} />
           <Route path='/counter' component={CounterPage} />
